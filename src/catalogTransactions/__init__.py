@@ -1,0 +1,1 @@
+from .Catalog import BiedronkaProductCatalog
