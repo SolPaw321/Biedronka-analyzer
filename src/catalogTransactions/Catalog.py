@@ -1,14 +1,15 @@
 import json
+from typing import ClassVar
 
-from src.misc import PATHS
+from src.misc import PATHS, FILES
 from src.reciptStatus import BiedronkaReceiptStatusManager
 
 class BiedronkaProductCatalog:
-    STATUS_FIELD = "cataloged"
+    STATUS_FIELD: ClassVar[str] = "cataloged"
 
     def __init__(self, status_manager: BiedronkaReceiptStatusManager) -> None:
         self.DOWNLOAD_DIR = PATHS.BIEDRONKA_DOWNLOADS
-        self.OUTPUT_FILE = PATHS.CATALOG / "catalog.txt"
+        self.OUTPUT_FILE = PATHS.CATALOG / FILES.CATALOG
 
         self.status_manager = status_manager
 
@@ -22,7 +23,7 @@ class BiedronkaProductCatalog:
                 product_name = sell_line["name"]
                 results.add(product_name.strip())
 
-    def load_existing_product_names(self) -> set[str]:
+    def __load_existing_product_names(self) -> set[str]:
         if not self.OUTPUT_FILE.exists():
             return set()
 
@@ -37,7 +38,7 @@ class BiedronkaProductCatalog:
         return existing_names
 
     def catalog_products(self) -> None:
-        product_names = self.load_existing_product_names()
+        product_names = self.__load_existing_product_names()
         existing_count = len(product_names)
 
         for path in self.DOWNLOAD_DIR.glob("*.json"):

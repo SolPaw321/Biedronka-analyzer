@@ -1,16 +1,17 @@
 import json
 from pathlib import Path
 
-from src.misc import PATHS
+from src.misc import PATHS, FILES
 
 
 class BiedronkaReceiptStatusManager:
     def __init__(self) -> None:
         self.DOWNLOAD_DIR = PATHS.BIEDRONKA_DOWNLOADS
-        self.STATUS_FILE = PATHS.DATA / "receipt_status.json"
+        self.STATUS_FILE = PATHS.DATA / FILES.RECEIPT_STATUS
 
         self.STAUS_FIELDS = (
             "cataloged",
+            "priced",
         )
 
         self._statuses: dict[str, dict[str, bool]] = {}

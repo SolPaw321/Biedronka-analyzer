@@ -32,6 +32,7 @@ class Paths:
         self.BIEDRONKA_DOWNLOADS = self.DATA / "biedronka_downloads"
         self.CATALOG = self.DATA / "catalog"
         self.NOMINAL_PRICES = self.DATA / "nominalPrices"
+        self.NOMINAL_PRICES_CHARTS = self.DATA / "charts"
 
         self.__ALL_PATHS = (
             self.PROJECT_ROOT,
@@ -39,7 +40,8 @@ class Paths:
             self.DATA,
             self.BIEDRONKA_DOWNLOADS,
             self.CATALOG,
-            self.NOMINAL_PRICES
+            self.NOMINAL_PRICES,
+            self.NOMINAL_PRICES_CHARTS,
         )
 
         self._ensure_directories()

@@ -79,3 +79,5 @@ Thumbs.db
 # Local data files
 *.json
 *.txt
+*.png
+*.jpg
