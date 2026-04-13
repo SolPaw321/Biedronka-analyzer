@@ -29,19 +29,23 @@ class Paths:
         self.SRC = self.PROJECT_ROOT / "src"
 
         self.DATA = self.PROJECT_ROOT / "data"
-        self.BIEDRONKA_DOWNLOADS = self.DATA / "biedronka_downloads"
+        self.DOWNLOAD = self.DATA / "download"
+        self.BIEDRONKA_DOWNLOAD = self.DOWNLOAD / "Biedronka"
+        self.ZABKA_DOWNLOAD = self.DOWNLOAD / "Zabka"
         self.CATALOG = self.DATA / "catalog"
         self.NOMINAL_PRICES = self.DATA / "nominalPrices"
-        self.NOMINAL_PRICES_CHARTS = self.DATA / "charts"
+        self.NOMINAL_PRICES_CHARTS = self.NOMINAL_PRICES / "charts"
+        self.DISCOUNTS = self.DATA / "discounts"
 
         self.__ALL_PATHS = (
             self.PROJECT_ROOT,
             self.SRC,
             self.DATA,
-            self.BIEDRONKA_DOWNLOADS,
+            self.BIEDRONKA_DOWNLOAD,
             self.CATALOG,
             self.NOMINAL_PRICES,
             self.NOMINAL_PRICES_CHARTS,
+            self.DISCOUNTS,
         )
 
         self._ensure_directories()
