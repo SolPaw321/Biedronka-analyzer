@@ -4,14 +4,14 @@ from datetime import datetime
 from playwright.sync_api import sync_playwright, TimeoutError
 
 from src.misc import PATHS
-from src.reciptStatus import BiedronkaReceiptStatusManager
+from src.handlers.reciptStatus import BiedronkaReceiptStatusManager
 
 
 class BiedronkaTransactionDownloader:
     def __init__(
         self,
         status_manager: BiedronkaReceiptStatusManager,
-        download_dir: str | Path = PATHS.BIEDRONKA_DOWNLOADS,
+        download_dir: str | Path = PATHS.BIEDRONKA_DOWNLOAD,
         cdp_url: str = "http://127.0.0.1:9222",
     ) -> None:
         self.DOWNLOAD_DIR = Path(download_dir)
@@ -103,4 +103,3 @@ class BiedronkaTransactionDownloader:
                     print(f"[{i+1}/{count}] No download detected after clicking")
                 except Exception as e:
                     print(f"[{i+1}/{count}] Error: {e}")
-        self.status_manager.initialize_new_recipts()
