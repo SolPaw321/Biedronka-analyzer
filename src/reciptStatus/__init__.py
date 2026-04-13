@@ -1,1 +1,0 @@
-from .reciptStatusManager import BiedronkaReceiptStatusManager
